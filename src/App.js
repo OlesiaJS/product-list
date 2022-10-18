@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { useState } from "react";
 import './App.css';
+import Row from './Row';
+import Form from './Form';
+
 
 function App() {
+  const [db, setDb] = useState([]);
+  let product = {};
+  function paseDate(name, amount, store) {
+    product = {
+      name: name,
+      amount: amount,
+      store: store
+    };
+    setDb([...db, ({ title: name, status: 0, amount: amount, store: store })]);
+    console.log(db);
+    return product;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>{db.map((item, i) =>
+        <Row
+          item={item}
+          index={i + 1}
+        />
+
+      )}
+      </div>
+      <Form a={paseDate} />
     </div>
   );
+
+
 }
 
 export default App;
