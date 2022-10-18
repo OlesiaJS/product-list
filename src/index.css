@@ -11,11 +11,15 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+  }
 
 .app {
   display: flex;
   justify-content: center;
+}
+
+.title {
+  font-size: 24px;
 }
 
 .ulWrapper {

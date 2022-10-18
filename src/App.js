@@ -3,7 +3,6 @@ import './App.css';
 import Row from './Row';
 import Form from './Form';
 
-
 function App() {
   const [db, setDb] = useState([]);
   let product = {};
@@ -20,19 +19,17 @@ function App() {
 
   return (
     <div className="App">
+      <div className="title">What to buy</div>
       <div>{db.map((item, i) =>
         <Row
           item={item}
           index={i + 1}
         />
-
       )}
       </div>
       <Form a={paseDate} />
     </div>
   );
-
-
 }
 
 export default App;
